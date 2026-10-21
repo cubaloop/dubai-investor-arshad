@@ -49,40 +49,127 @@
     <span>PRIVATE WEALTH ADVISORY &bull; 2-BEDROOM (2BR) CAPITAL MULTIPLICATION ARBITRAGE &bull; CONFIDENTIAL DOSSIER</span>
   </div>
 
+  <!-- Left Vertical Drawer Backdrop & Panel -->
+  <div id="drawerBackdrop" class="drawer-backdrop"></div>
+  <aside id="drawerPanel" class="drawer-panel p-6 overflow-y-auto">
+    <!-- Drawer Header -->
+    <div class="flex items-center justify-between pb-6 border-b border-slate-200 dark:border-slate-800">
+      <div class="flex items-center gap-3">
+        <div class="w-9 h-9 rounded-xl bg-[#7A5A1E] flex items-center justify-center text-white font-cinzel font-bold text-base shadow-md">
+          A
+        </div>
+        <div>
+          <span class="font-cinzel text-xs font-bold tracking-wider text-slate-900 dark:text-slate-100 block">DUBAI ADVISORY</span>
+          <span class="text-[10px] text-[#7A5A1E] dark:text-[#D9B76F] font-bold uppercase tracking-widest">MR. ARSHAD</span>
+        </div>
+      </div>
+      <button id="closeDrawerBtn" aria-label="Close Navigation" class="p-2 rounded-xl text-slate-500 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
+        <i data-lucide="x" class="w-5 h-5"></i>
+      </button>
+    </div>
+
+    <!-- Drawer Navigation Links -->
+    <nav class="py-6 space-y-2 border-b border-slate-200 dark:border-slate-800 text-xs font-bold uppercase tracking-wider">
+      <a href="#verdict" class="drawer-link flex items-center gap-3.5 px-3 py-3 rounded-xl text-slate-700 dark:text-slate-200 hover:bg-amber-500/10 hover:text-[#7A5A1E] dark:hover:text-[#D9B76F] transition-all">
+        <i data-lucide="check-circle" class="w-4 h-4 text-[#7A5A1E] dark:text-[#D9B76F]"></i>
+        <span>Executive Verdict</span>
+      </a>
+      <a href="#matrix" class="drawer-link flex items-center gap-3.5 px-3 py-3 rounded-xl text-slate-700 dark:text-slate-200 hover:bg-amber-500/10 hover:text-[#7A5A1E] dark:hover:text-[#D9B76F] transition-all">
+        <i data-lucide="table" class="w-4 h-4 text-[#7A5A1E] dark:text-[#D9B76F]"></i>
+        <span>4-Way Matrix</span>
+      </a>
+      <a href="#simulator" class="drawer-link flex items-center gap-3.5 px-3 py-3 rounded-xl text-slate-700 dark:text-slate-200 hover:bg-amber-500/10 hover:text-[#7A5A1E] dark:hover:text-[#D9B76F] transition-all">
+        <i data-lucide="trending-up" class="w-4 h-4 text-[#7A5A1E] dark:text-[#D9B76F]"></i>
+        <span>ROE Leverage Simulator</span>
+      </a>
+      <a href="#spotlights" class="drawer-link flex items-center gap-3.5 px-3 py-3 rounded-xl text-slate-700 dark:text-slate-200 hover:bg-amber-500/10 hover:text-[#7A5A1E] dark:hover:text-[#D9B76F] transition-all">
+        <i data-lucide="building-2" class="w-4 h-4 text-[#7A5A1E] dark:text-[#D9B76F]"></i>
+        <span>Developments Spotlight</span>
+      </a>
+      <a href="#blueprints" class="drawer-link flex items-center gap-3.5 px-3 py-3 rounded-xl text-slate-700 dark:text-slate-200 hover:bg-amber-500/10 hover:text-[#7A5A1E] dark:hover:text-[#D9B76F] transition-all">
+        <i data-lucide="layout" class="w-4 h-4 text-[#7A5A1E] dark:text-[#D9B76F]"></i>
+        <span>Architectural Blueprints</span>
+      </a>
+      <a href="#action-plan" class="drawer-link flex items-center gap-3.5 px-3 py-3 rounded-xl text-slate-700 dark:text-slate-200 hover:bg-amber-500/10 hover:text-[#7A5A1E] dark:hover:text-[#D9B76F] transition-all">
+        <i data-lucide="target" class="w-4 h-4 text-[#7A5A1E] dark:text-[#D9B76F]"></i>
+        <span>Strategic Action Plan</span>
+      </a>
+    </nav>
+
+    <!-- Drawer Controls: Currency, Theme & WhatsApp -->
+    <div class="py-6 space-y-4">
+      <div class="flex items-center justify-between text-xs font-semibold text-slate-600 dark:text-slate-400">
+        <span>Display Currency</span>
+        <div class="flex items-center rounded-full border border-slate-300 dark:border-slate-700 p-0.5 font-bold bg-white/70 dark:bg-black/30">
+          <button id="drawerCurrencyAED" class="px-2.5 py-1 rounded-full bg-[#7A5A1E] text-white transition-all text-xs">AED</button>
+          <button id="drawerCurrencyUSD" class="px-2.5 py-1 rounded-full text-slate-600 dark:text-slate-300 transition-all text-xs">USD</button>
+        </div>
+      </div>
+
+      <div class="flex items-center justify-between text-xs font-semibold text-slate-600 dark:text-slate-400">
+        <span>Interface Theme</span>
+        <button id="drawerThemeToggleBtn" aria-label="Toggle Theme" class="p-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-white/70 dark:bg-black/30 hover:border-[#7A5A1E] transition-all">
+          <i id="drawerThemeIcon" data-lucide="moon" class="w-4 h-4 text-slate-700 dark:text-slate-200"></i>
+        </button>
+      </div>
+
+      <div class="pt-4 flex items-center justify-between">
+        <span class="text-xs text-slate-500 font-medium">Direct WhatsApp Concierge:</span>
+        <a href="https://wa.me/971563004106" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp Contact" class="relative group p-2.5 rounded-full bg-emerald-600 hover:bg-emerald-500 text-white shadow-lg transition-transform hover:scale-105 active:scale-95 flex items-center justify-center">
+          <span class="absolute -top-1 -right-1 w-3 h-3 bg-amber-400 rounded-full animate-ping"></span>
+          <span class="absolute -top-1 -right-1 w-3 h-3 bg-amber-400 rounded-full"></span>
+          <i data-lucide="message-circle" class="w-5 h-5"></i>
+        </a>
+      </div>
+    </div>
+
+    <!-- Drawer Footer Signature -->
+    <div class="mt-auto pt-6 border-t border-slate-200 dark:border-slate-800 text-[11px] text-slate-400 text-center">
+      Developed by Tecnoemprende
+    </div>
+  </aside>
+
   <!-- Navigation Header -->
-  <header class="sticky top-0 z-50 glass-nav transition-all duration-300">
+  <header class="sticky top-0 z-40 glass-nav transition-all duration-300">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center justify-between h-20">
-        <!-- Brand & Client Tag -->
-        <div class="flex items-center gap-4">
-          <div class="w-10 h-10 rounded-xl bg-[#7A5A1E] flex items-center justify-center text-white font-cinzel font-bold text-lg shadow-md">
-            A
-          </div>
-          <div>
-            <div class="flex items-center gap-2">
-              <span class="font-cinzel text-sm sm:text-base font-bold tracking-wide text-slate-900 dark:text-slate-100">DUBAI CAPITAL ADVISORY</span>
-              <span class="pill-tag text-[10px]">MR. ARSHAD</span>
+        <!-- Left Section: Hamburger Button + Brand -->
+        <div class="flex items-center gap-3 sm:gap-4">
+          <!-- Hamburger Button (Vertical Left Drawer Trigger) -->
+          <button id="openDrawerBtn" aria-label="Open Navigation Menu" class="p-2.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-white/70 dark:bg-black/30 hover:border-[#7A5A1E] transition-all text-slate-800 dark:text-slate-200 shadow-sm flex items-center justify-center">
+            <i data-lucide="menu" class="w-5 h-5"></i>
+          </button>
+
+          <div class="flex items-center gap-3">
+            <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-[#7A5A1E] flex items-center justify-center text-white font-cinzel font-bold text-base sm:text-lg shadow-md">
+              A
             </div>
-            <p class="text-[11px] text-slate-500 dark:text-slate-400 tracking-wider uppercase font-medium">Strategic 2BR Portfolio Benchmarking</p>
+            <div>
+              <div class="flex items-center gap-2">
+                <span class="font-cinzel text-xs sm:text-base font-bold tracking-wide text-slate-900 dark:text-slate-100">DUBAI ADVISORY</span>
+                <span class="pill-tag text-[9px] sm:text-[10px] hidden sm:inline-flex">MR. ARSHAD</span>
+              </div>
+              <p class="text-[10px] sm:text-[11px] text-slate-500 dark:text-slate-400 tracking-wider uppercase font-medium">Strategic 2BR Portfolio Benchmarking</p>
+            </div>
           </div>
         </div>
 
-        <!-- Center Nav Links -->
-        <nav class="hidden lg:flex items-center gap-6 text-xs uppercase tracking-wider font-semibold text-slate-600 dark:text-slate-300">
+        <!-- Center Nav Links (Desktop) -->
+        <nav class="hidden xl:flex items-center gap-6 text-xs uppercase tracking-wider font-semibold text-slate-600 dark:text-slate-300">
           <a href="#verdict" class="hover:text-[#7A5A1E] dark:hover:text-[#D9B76F] transition-colors">Executive Verdict</a>
           <a href="#matrix" class="hover:text-[#7A5A1E] dark:hover:text-[#D9B76F] transition-colors">4-Way Matrix</a>
           <a href="#simulator" class="hover:text-[#7A5A1E] dark:hover:text-[#D9B76F] transition-colors">ROE Simulator</a>
           <a href="#spotlights" class="hover:text-[#7A5A1E] dark:hover:text-[#D9B76F] transition-colors">Developments</a>
-          <a href="#blueprints" class="hover:text-[#7A5A1E] dark:hover:text-[#D9B76F] transition-colors">Unit Blueprints</a>
+          <a href="#blueprints" class="hover:text-[#7A5A1E] dark:hover:text-[#D9B76F] transition-colors">Blueprints</a>
           <a href="#action-plan" class="hover:text-[#7A5A1E] dark:hover:text-[#D9B76F] transition-colors">Action Plan</a>
         </nav>
 
-        <!-- Controls: Currency, Theme & Strict Icon-Only WhatsApp -->
-        <div class="flex items-center gap-3">
+        <!-- Right Controls: Currency, Theme & Strict Icon-Only WhatsApp -->
+        <div class="flex items-center gap-2 sm:gap-3">
           <!-- Currency Toggle -->
           <div class="flex items-center rounded-full border border-slate-300 dark:border-slate-700 p-0.5 text-xs font-bold bg-white/70 dark:bg-black/30">
-            <button id="currencyAED" class="px-2.5 py-1 rounded-full bg-[#7A5A1E] text-white transition-all">AED</button>
-            <button id="currencyUSD" class="px-2.5 py-1 rounded-full text-slate-600 dark:text-slate-300 transition-all">USD</button>
+            <button id="currencyAED" class="px-2 sm:px-2.5 py-1 rounded-full bg-[#7A5A1E] text-white transition-all text-xs">AED</button>
+            <button id="currencyUSD" class="px-2 sm:px-2.5 py-1 rounded-full text-slate-600 dark:text-slate-300 transition-all text-xs">USD</button>
           </div>
 
           <!-- Theme Toggle -->
@@ -90,8 +177,8 @@
             <i id="themeIcon" data-lucide="moon" class="w-4 h-4 text-slate-700 dark:text-slate-200"></i>
           </button>
 
-          <!-- WhatsApp Button: STRICTLY ICON ONLY -->
-          <a href="https://wa.me/971508379080" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp Contact" class="relative group p-2.5 rounded-full bg-emerald-600 hover:bg-emerald-500 text-white shadow-lg transition-transform hover:scale-105 active:scale-95 flex items-center justify-center">
+          <!-- WhatsApp Button: STRICTLY ICON ONLY (+971 563004106) -->
+          <a href="https://wa.me/971563004106" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp Contact" class="relative group p-2.5 rounded-full bg-emerald-600 hover:bg-emerald-500 text-white shadow-lg transition-transform hover:scale-105 active:scale-95 flex items-center justify-center">
             <span class="absolute -top-1 -right-1 w-3 h-3 bg-amber-400 rounded-full animate-ping"></span>
             <span class="absolute -top-1 -right-1 w-3 h-3 bg-amber-400 rounded-full"></span>
             <i data-lucide="message-circle" class="w-5 h-5"></i>
@@ -102,20 +189,23 @@
   </header>
 
   <!-- Hero Section -->
-  <section class="relative pt-12 pb-20 overflow-hidden">
+  <section class="relative pt-10 sm:pt-16 pb-16 sm:pb-20 overflow-hidden">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center max-w-4xl mx-auto">
-        <div class="inline-flex items-center gap-2 mb-4 px-4 py-1.5 rounded-full bg-amber-500/10 border border-amber-600/20 text-[#7A5A1E] dark:text-[#D9B76F] text-xs font-bold uppercase tracking-widest">
+        <!-- Client Dossier Pill -->
+        <div class="inline-flex items-center gap-2 mb-6 px-4 py-1.5 rounded-full bg-amber-500/10 border border-amber-600/20 text-[#7A5A1E] dark:text-[#D9B76F] text-xs font-bold uppercase tracking-widest">
           <i data-lucide="shield-check" class="w-4 h-4"></i>
           <span>Confidential Real Estate Proposal &bull; Prepared Specially for Arshad</span>
         </div>
         
-        <h1 class="text-3xl sm:text-5xl lg:text-6xl font-bold font-syne tracking-tight text-slate-900 dark:text-white leading-[1.15] mb-6">
+        <!-- Hero Title in Stately Cinzel & Outfit (Refined & Professional) -->
+        <h1 class="text-3xl sm:text-5xl lg:text-6xl font-bold font-cinzel tracking-tight text-slate-900 dark:text-white leading-[1.18] mb-6">
           Strategic 2BR Investment: <br/>
-          <span class="brass-gradient-text">Capital Growth &amp; ROE Optimization</span>
+          <span class="brass-gradient-text font-outfit font-extrabold uppercase tracking-wide">Capital Growth &amp; ROE Optimization</span>
         </h1>
 
-        <p class="text-base sm:text-lg text-slate-600 dark:text-slate-300 leading-relaxed mb-8 max-w-3xl mx-auto">
+        <!-- Hero Subtitle in Clean Plus Jakarta Sans -->
+        <p class="text-sm sm:text-base lg:text-lg text-slate-600 dark:text-slate-300 leading-relaxed mb-8 max-w-3xl mx-auto font-jakarta">
           An institutional-grade comparative yield and capital leverage evaluation benchmarking four high-potential 2-Bedroom developments in Dubai: 
           <span class="font-semibold text-slate-900 dark:text-white">Allegro Park (Dubai Islands)</span>, 
           <span class="font-semibold text-slate-900 dark:text-white">KORE by Imtiaz (Dubailand)</span>, 
@@ -123,30 +213,43 @@
           <span class="font-semibold text-slate-900 dark:text-white">Mercedes-Benz Places (Binghatti City)</span>.
         </p>
 
-        <!-- Highlight Metric Cards -->
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-left mt-10">
-          <div class="glass-panel p-5 rounded-2xl">
-            <span class="text-xs uppercase tracking-wider text-slate-500 dark:text-slate-400 font-semibold">Target Asset Class</span>
-            <div class="text-xl sm:text-2xl font-bold font-syne text-slate-900 dark:text-white mt-1">2-Bedroom (2BR)</div>
-            <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">High tenant liquidity &amp; capital gains</p>
+        <!-- Ergonomic Mobile-First Metric Cards (Grid cols 2 on mobile, cols 4 on desktop) -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 text-left mt-8 sm:mt-10">
+          <!-- Card 1 -->
+          <div class="glass-panel p-4 sm:p-5 rounded-2xl flex flex-col justify-between">
+            <div>
+              <span class="text-[10px] sm:text-xs uppercase tracking-wider text-slate-500 dark:text-slate-400 font-bold block">Target Asset Class</span>
+              <div class="text-lg sm:text-2xl font-extrabold font-outfit text-slate-900 dark:text-white mt-1">2-Bedroom</div>
+              <span class="text-[11px] font-bold text-slate-500 uppercase tracking-wider">(2BR)</span>
+            </div>
+            <p class="text-[10px] sm:text-xs text-slate-500 dark:text-slate-400 mt-2">High tenant liquidity &amp; capital gains</p>
           </div>
 
-          <div class="glass-panel p-5 rounded-2xl border-l-4 border-l-[#7A5A1E]">
-            <span class="text-xs uppercase tracking-wider text-slate-500 dark:text-slate-400 font-semibold">Maximum ROE Arbitrage</span>
-            <div class="text-xl sm:text-2xl font-extrabold font-syne text-[#7A5A1E] dark:text-[#D9B76F] mt-1">&gt; 160% ROE</div>
-            <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">Allegro Park 50/50 3-Yr Post-Handover</p>
+          <!-- Card 2 -->
+          <div class="glass-panel p-4 sm:p-5 rounded-2xl border-l-4 border-l-[#7A5A1E] flex flex-col justify-between">
+            <div>
+              <span class="text-[10px] sm:text-xs uppercase tracking-wider text-slate-500 dark:text-slate-400 font-bold block">Maximum ROE Arbitrage</span>
+              <div class="text-lg sm:text-2xl font-extrabold font-outfit text-[#7A5A1E] dark:text-[#D9B76F] mt-1">&gt; 160% ROE</div>
+            </div>
+            <p class="text-[10px] sm:text-xs text-slate-500 dark:text-slate-400 mt-2">Allegro Park 50/50 3-Yr Post-Handover</p>
           </div>
 
-          <div class="glass-panel p-5 rounded-2xl border-l-4 border-l-emerald-600">
-            <span class="text-xs uppercase tracking-wider text-slate-500 dark:text-slate-400 font-semibold">Net Yield Peak</span>
-            <div class="text-xl sm:text-2xl font-extrabold font-syne text-emerald-600 dark:text-emerald-400 mt-1">8.5% &ndash; 9.5%</div>
-            <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">KORE Wellness Concept Dubailand</p>
+          <!-- Card 3 -->
+          <div class="glass-panel p-4 sm:p-5 rounded-2xl border-l-4 border-l-emerald-600 flex flex-col justify-between">
+            <div>
+              <span class="text-[10px] sm:text-xs uppercase tracking-wider text-slate-500 dark:text-slate-400 font-bold block">Net Yield Peak</span>
+              <div class="text-lg sm:text-2xl font-extrabold font-outfit text-emerald-600 dark:text-emerald-400 mt-1">8.5% &ndash; 9.5%</div>
+            </div>
+            <p class="text-[10px] sm:text-xs text-slate-500 dark:text-slate-400 mt-2">KORE Wellness Concept Dubailand</p>
           </div>
 
-          <div class="glass-panel p-5 rounded-2xl border-l-4 border-l-sky-600">
-            <span class="text-xs uppercase tracking-wider text-slate-500 dark:text-slate-400 font-semibold">Pre-Handover Deferral</span>
-            <div class="text-xl sm:text-2xl font-extrabold font-syne text-sky-600 dark:text-sky-400 mt-1">Only 30% Cash</div>
-            <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">Danube SRK 30/70 until Dec 2029</p>
+          <!-- Card 4 -->
+          <div class="glass-panel p-4 sm:p-5 rounded-2xl border-l-4 border-l-sky-600 flex flex-col justify-between">
+            <div>
+              <span class="text-[10px] sm:text-xs uppercase tracking-wider text-slate-500 dark:text-slate-400 font-bold block">Pre-Handover Deferral</span>
+              <div class="text-lg sm:text-2xl font-extrabold font-outfit text-sky-600 dark:text-sky-400 mt-1">Only 30% Cash</div>
+            </div>
+            <p class="text-[10px] sm:text-xs text-slate-500 dark:text-slate-400 mt-2">Danube SRK 30/70 until Dec 2029</p>
           </div>
         </div>
       </div>
@@ -154,15 +257,15 @@
   </section>
 
   <!-- Section 1: Executive Verdict & Strategic Archetypes -->
-  <section id="verdict" class="py-16 bg-white/40 dark:bg-black/20 border-y border-slate-200/80 dark:border-slate-800/80">
+  <section id="verdict" class="py-14 sm:py-16 bg-white/40 dark:bg-black/20 border-y border-slate-200/80 dark:border-slate-800/80">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 sm:mb-12">
         <div>
           <span class="pill-tag mb-2">Executive Investment Verdict</span>
-          <h2 class="text-2xl sm:text-4xl font-bold font-syne text-slate-900 dark:text-white">
+          <h2 class="text-2xl sm:text-4xl font-bold font-cinzel text-slate-900 dark:text-white">
             Four Distinct Wealth Architectures for Arshad
           </h2>
-          <p class="text-sm sm:text-base text-slate-600 dark:text-slate-300 mt-2 max-w-2xl">
+          <p class="text-xs sm:text-base text-slate-600 dark:text-slate-300 mt-2 max-w-2xl font-jakarta">
             Each development provides a specific financial mechanism calibrated for different investor priorities: maximum equity leverage, immediate cash yield, ultra-deferred construction outlays, or global branded trophy security.
           </p>
         </div>
@@ -178,20 +281,20 @@
               <span class="text-xs font-bold uppercase tracking-wider text-[#7A5A1E] dark:text-[#D9B76F]">Option A &bull; Waterfront Leverage</span>
               <span class="text-[11px] font-bold px-2 py-0.5 rounded-md bg-amber-500/10 text-[#7A5A1E] dark:text-[#D9B76F]">Dubai Islands</span>
             </div>
-            <h3 class="text-xl font-bold font-syne text-slate-900 dark:text-white mb-2">Allegro Park</h3>
+            <h3 class="text-xl font-bold font-cinzel text-slate-900 dark:text-white mb-2">Allegro Park</h3>
             <p class="text-xs text-slate-600 dark:text-slate-300 mb-4 line-clamp-3">
               Waterfront equity leverage structure. Features a 50/50 3-Year Post-Handover payment plan designed to multiply Return on Equity while collecting rental income.
             </p>
             <div class="space-y-2 py-3 border-y border-slate-200 dark:border-slate-800 text-xs">
-              <div class="flex justify-between"><span class="text-slate-500">2BR Entry Capital:</span> <span class="font-bold" data-aed="1200000">AED 1,200,000</span></div>
+              <div class="flex justify-between"><span class="text-slate-500">2BR Entry Capital:</span> <span class="font-bold font-outfit" data-aed="1200000">AED 1,200,000</span></div>
               <div class="flex justify-between"><span class="text-slate-500">Payment Plan:</span> <span class="font-bold text-[#7A5A1E] dark:text-[#D9B76F]">50/50 3-Yr Post-Handover</span></div>
-              <div class="flex justify-between"><span class="text-slate-500">3-Yr Projected Rent:</span> <span class="font-bold" data-aed="540000">AED 540,000</span></div>
-              <div class="flex justify-between"><span class="text-slate-500">Estimated Exit Value:</span> <span class="font-bold" data-aed="3800000">AED 3,800,000</span></div>
+              <div class="flex justify-between"><span class="text-slate-500">3-Yr Projected Rent:</span> <span class="font-bold font-outfit" data-aed="540000">AED 540,000</span></div>
+              <div class="flex justify-between"><span class="text-slate-500">Estimated Exit Value:</span> <span class="font-bold font-outfit" data-aed="3800000">AED 3,800,000</span></div>
             </div>
           </div>
           <div class="mt-6 pt-4 border-t border-slate-200 dark:border-slate-800 flex items-center justify-between">
             <span class="text-xs font-semibold text-slate-500">Target Metric</span>
-            <span class="text-base font-extrabold text-[#7A5A1E] dark:text-[#D9B76F]">&gt; 160% ROE</span>
+            <span class="text-base font-extrabold font-outfit text-[#7A5A1E] dark:text-[#D9B76F]">&gt; 160% ROE</span>
           </div>
         </div>
 
@@ -203,12 +306,12 @@
               <span class="text-xs font-bold uppercase tracking-wider text-emerald-600 dark:text-emerald-400">Option B &bull; High Cash Flow</span>
               <span class="text-[11px] font-bold px-2 py-0.5 rounded-md bg-emerald-500/10 text-emerald-600 dark:text-emerald-400">Dubailand</span>
             </div>
-            <h3 class="text-xl font-bold font-syne text-slate-900 dark:text-white mb-2">KORE by Imtiaz</h3>
+            <h3 class="text-xl font-bold font-cinzel text-slate-900 dark:text-white mb-2">KORE by Imtiaz</h3>
             <p class="text-xs text-slate-600 dark:text-slate-300 mb-4 line-clamp-3">
               Wellness-centric urban asset. Delivers high operational occupancy and rental premiums powered by 3,200 sq.ft Technogym AI and bio-hacking facilities.
             </p>
             <div class="space-y-2 py-3 border-y border-slate-200 dark:border-slate-800 text-xs">
-              <div class="flex justify-between"><span class="text-slate-500">2BR Base Price:</span> <span class="font-bold" data-aed="1800000">AED 1,800,000</span></div>
+              <div class="flex justify-between"><span class="text-slate-500">2BR Base Price:</span> <span class="font-bold font-outfit" data-aed="1800000">AED 1,800,000</span></div>
               <div class="flex justify-between"><span class="text-slate-500">Payment Plan:</span> <span class="font-bold">60/40 Construction</span></div>
               <div class="flex justify-between"><span class="text-slate-500">Handover Step-up:</span> <span class="font-bold text-emerald-600">+15% to 20% Fully Furnished</span></div>
               <div class="flex justify-between"><span class="text-slate-500">Target Tenant:</span> <span class="font-bold">Corporate Executives</span></div>
@@ -216,7 +319,7 @@
           </div>
           <div class="mt-6 pt-4 border-t border-slate-200 dark:border-slate-800 flex items-center justify-between">
             <span class="text-xs font-semibold text-slate-500">Target Metric</span>
-            <span class="text-base font-extrabold text-emerald-600 dark:text-emerald-400">8.5% &ndash; 9.5% Net Yield</span>
+            <span class="text-base font-extrabold font-outfit text-emerald-600 dark:text-emerald-400">8.5% &ndash; 9.5% Net Yield</span>
           </div>
         </div>
 
@@ -228,20 +331,20 @@
               <span class="text-xs font-bold uppercase tracking-wider text-sky-600 dark:text-sky-400">Option C &bull; 30/70 Maritime Deferral</span>
               <span class="text-[11px] font-bold px-2 py-0.5 rounded-md bg-sky-500/10 text-sky-600 dark:text-sky-400">Maritime City</span>
             </div>
-            <h3 class="text-xl font-bold font-syne text-slate-900 dark:text-white mb-2">Danube SRK</h3>
+            <h3 class="text-xl font-bold font-cinzel text-slate-900 dark:text-white mb-2">Danube SRK</h3>
             <p class="text-xs text-slate-600 dark:text-slate-300 mb-4 line-clamp-3">
               Waterfront peninsula residences designed with Shah Rukh Khan. Ultra-leveraged 30/70 payment plan requiring only 30% capital across 4 years until Dec 2029 handover.
             </p>
             <div class="space-y-2 py-3 border-y border-slate-200 dark:border-slate-800 text-xs">
-              <div class="flex justify-between"><span class="text-slate-500">2BR Starting Price:</span> <span class="font-bold" data-aed="4250000">AED 4,250,000</span></div>
-              <div class="flex justify-between"><span class="text-slate-500">Capital Pre-Handover (30%):</span> <span class="font-bold text-sky-600" data-aed="1275000">AED 1,275,000</span></div>
+              <div class="flex justify-between"><span class="text-slate-500">2BR Starting Price:</span> <span class="font-bold font-outfit" data-aed="4250000">AED 4,250,000</span></div>
+              <div class="flex justify-between"><span class="text-slate-500">Capital Pre-Handover (30%):</span> <span class="font-bold font-outfit text-sky-600" data-aed="1275000">AED 1,275,000</span></div>
               <div class="flex justify-between"><span class="text-slate-500">Final Balance (70%):</span> <span class="font-bold">Dec 2029 (Handover)</span></div>
               <div class="flex justify-between"><span class="text-slate-500">Waterfront Views:</span> <span class="font-bold">Panoramic Sea View</span></div>
             </div>
           </div>
           <div class="mt-6 pt-4 border-t border-slate-200 dark:border-slate-800 flex items-center justify-between">
             <span class="text-xs font-semibold text-slate-500">Target Metric</span>
-            <span class="text-base font-extrabold text-sky-600 dark:text-sky-400">&gt; 140% ROE (Only 30% Down)</span>
+            <span class="text-base font-extrabold font-outfit text-sky-600 dark:text-sky-400">&gt; 140% ROE (Only 30% Down)</span>
           </div>
         </div>
 
@@ -253,12 +356,12 @@
               <span class="text-xs font-bold uppercase tracking-wider text-purple-600 dark:text-purple-400">Option D &bull; Global Trophy Asset</span>
               <span class="text-[11px] font-bold px-2 py-0.5 rounded-md bg-purple-500/10 text-purple-600 dark:text-purple-400">Downtown / Meydan</span>
             </div>
-            <h3 class="text-xl font-bold font-syne text-slate-900 dark:text-white mb-2">Mercedes-Benz Places</h3>
+            <h3 class="text-xl font-bold font-cinzel text-slate-900 dark:text-white mb-2">Mercedes-Benz Places</h3>
             <p class="text-xs text-slate-600 dark:text-slate-300 mb-4 line-clamp-3">
               World's first automotive-branded master city by Binghatti &amp; Mercedes-Benz. 12 towers embodying Sensual Purity, Maybach finishing, and supreme liquidity.
             </p>
             <div class="space-y-2 py-3 border-y border-slate-200 dark:border-slate-800 text-xs">
-              <div class="flex justify-between"><span class="text-slate-500">2BR Baseline Price:</span> <span class="font-bold" data-aed="4100000">AED 4,100,000</span></div>
+              <div class="flex justify-between"><span class="text-slate-500">2BR Baseline Price:</span> <span class="font-bold font-outfit" data-aed="4100000">AED 4,100,000</span></div>
               <div class="flex justify-between"><span class="text-slate-500">Payment Plan:</span> <span class="font-bold">70/30 Construction Linked</span></div>
               <div class="flex justify-between"><span class="text-slate-500">Architecture:</span> <span class="font-bold">Photovoltaic Glass City</span></div>
               <div class="flex justify-between"><span class="text-slate-500">Skyline Views:</span> <span class="font-bold">Burj Khalifa &amp; Sanctuary</span></div>
@@ -266,7 +369,7 @@
           </div>
           <div class="mt-6 pt-4 border-t border-slate-200 dark:border-slate-800 flex items-center justify-between">
             <span class="text-xs font-semibold text-slate-500">Target Metric</span>
-            <span class="text-base font-extrabold text-purple-600 dark:text-purple-400">Trophy Brand Equity</span>
+            <span class="text-base font-extrabold font-outfit text-purple-600 dark:text-purple-400">Trophy Brand Equity</span>
           </div>
         </div>
       </div>
@@ -274,14 +377,14 @@
   </section>
 
   <!-- Section 2: 4-Way Comprehensive Property & Financial Matrix -->
-  <section id="matrix" class="py-16">
+  <section id="matrix" class="py-14 sm:py-16">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center max-w-3xl mx-auto mb-12">
+      <div class="text-center max-w-3xl mx-auto mb-10 sm:mb-12">
         <span class="pill-tag mb-2">Comprehensive Property Matrix</span>
-        <h2 class="text-2xl sm:text-4xl font-bold font-syne text-slate-900 dark:text-white">
+        <h2 class="text-2xl sm:text-4xl font-bold font-cinzel text-slate-900 dark:text-white">
           Institutional Head-to-Head Comparison
         </h2>
-        <p class="text-sm sm:text-base text-slate-600 dark:text-slate-300 mt-2">
+        <p class="text-xs sm:text-base text-slate-600 dark:text-slate-300 mt-2 font-jakarta">
           Direct side-by-side evaluation across location dynamics, payment leverage, capital outlay, and exit mechanics.
         </p>
       </div>
@@ -323,10 +426,10 @@
               </tr>
               <tr>
                 <td class="p-4 sm:p-5 text-slate-500 font-bold bg-slate-50/50 dark:bg-slate-900/30">2BR Baseline Price</td>
-                <td class="p-4 sm:p-5 border-l border-slate-200 dark:border-slate-800 font-bold text-slate-900 dark:text-white" data-aed="2400000">AED 2,400,000</td>
-                <td class="p-4 sm:p-5 border-l border-slate-200 dark:border-slate-800 font-bold text-slate-900 dark:text-white" data-aed="1800000">AED 1,800,000</td>
-                <td class="p-4 sm:p-5 border-l border-slate-200 dark:border-slate-800 font-bold text-slate-900 dark:text-white" data-aed="4250000">AED 4,250,000</td>
-                <td class="p-4 sm:p-5 border-l border-slate-200 dark:border-slate-800 font-bold text-slate-900 dark:text-white" data-aed="4100000">AED 4,100,000</td>
+                <td class="p-4 sm:p-5 border-l border-slate-200 dark:border-slate-800 font-bold font-outfit text-slate-900 dark:text-white" data-aed="2400000">AED 2,400,000</td>
+                <td class="p-4 sm:p-5 border-l border-slate-200 dark:border-slate-800 font-bold font-outfit text-slate-900 dark:text-white" data-aed="1800000">AED 1,800,000</td>
+                <td class="p-4 sm:p-5 border-l border-slate-200 dark:border-slate-800 font-bold font-outfit text-slate-900 dark:text-white" data-aed="4250000">AED 4,250,000</td>
+                <td class="p-4 sm:p-5 border-l border-slate-200 dark:border-slate-800 font-bold font-outfit text-slate-900 dark:text-white" data-aed="4100000">AED 4,100,000</td>
               </tr>
               <tr>
                 <td class="p-4 sm:p-5 text-slate-500 font-bold bg-slate-50/50 dark:bg-slate-900/30">Payment Structure</td>
@@ -337,17 +440,17 @@
               </tr>
               <tr>
                 <td class="p-4 sm:p-5 text-slate-500 font-bold bg-slate-50/50 dark:bg-slate-900/30">Capital Outlay Pre-Keys</td>
-                <td class="p-4 sm:p-5 border-l border-slate-200 dark:border-slate-800 font-bold text-emerald-600 dark:text-emerald-400" data-aed="1200000">AED 1,200,000 (50%)</td>
-                <td class="p-4 sm:p-5 border-l border-slate-200 dark:border-slate-800 font-bold" data-aed="1080000">AED 1,080,000 (60%)</td>
-                <td class="p-4 sm:p-5 border-l border-slate-200 dark:border-slate-800 font-bold text-sky-600" data-aed="1275000">AED 1,275,000 (30%)</td>
-                <td class="p-4 sm:p-5 border-l border-slate-200 dark:border-slate-800 font-bold" data-aed="2870000">AED 2,870,000 (70%)</td>
+                <td class="p-4 sm:p-5 border-l border-slate-200 dark:border-slate-800 font-bold font-outfit text-emerald-600 dark:text-emerald-400" data-aed="1200000">AED 1,200,000 (50%)</td>
+                <td class="p-4 sm:p-5 border-l border-slate-200 dark:border-slate-800 font-bold font-outfit" data-aed="1080000">AED 1,080,000 (60%)</td>
+                <td class="p-4 sm:p-5 border-l border-slate-200 dark:border-slate-800 font-bold font-outfit text-sky-600" data-aed="1275000">AED 1,275,000 (30%)</td>
+                <td class="p-4 sm:p-5 border-l border-slate-200 dark:border-slate-800 font-bold font-outfit" data-aed="2870000">AED 2,870,000 (70%)</td>
               </tr>
               <tr>
                 <td class="p-4 sm:p-5 text-slate-500 font-bold bg-slate-50/50 dark:bg-slate-900/30">Target Financial Metric</td>
-                <td class="p-4 sm:p-5 border-l border-slate-200 dark:border-slate-800 font-extrabold text-[#7A5A1E] dark:text-[#D9B76F]">&gt; 160% ROE</td>
-                <td class="p-4 sm:p-5 border-l border-slate-200 dark:border-slate-800 font-extrabold text-emerald-600 dark:text-emerald-400">8.5% &ndash; 9.5% Net Yield</td>
-                <td class="p-4 sm:p-5 border-l border-slate-200 dark:border-slate-800 font-extrabold text-sky-600">&gt; 140% ROE Leverage</td>
-                <td class="p-4 sm:p-5 border-l border-slate-200 dark:border-slate-800 font-extrabold text-purple-600">Global Trophy Liquidity</td>
+                <td class="p-4 sm:p-5 border-l border-slate-200 dark:border-slate-800 font-extrabold font-outfit text-[#7A5A1E] dark:text-[#D9B76F]">&gt; 160% ROE</td>
+                <td class="p-4 sm:p-5 border-l border-slate-200 dark:border-slate-800 font-extrabold font-outfit text-emerald-600 dark:text-emerald-400">8.5% &ndash; 9.5% Net Yield</td>
+                <td class="p-4 sm:p-5 border-l border-slate-200 dark:border-slate-800 font-extrabold font-outfit text-sky-600">&gt; 140% ROE Leverage</td>
+                <td class="p-4 sm:p-5 border-l border-slate-200 dark:border-slate-800 font-extrabold font-outfit text-purple-600">Global Trophy Liquidity</td>
               </tr>
               <tr>
                 <td class="p-4 sm:p-5 text-slate-500 font-bold bg-slate-50/50 dark:bg-slate-900/30">Key Competitive Advantage</td>
@@ -364,34 +467,34 @@
   </section>
 
   <!-- Section 3: Interactive ROE & Capital Appreciation Simulator -->
-  <section id="simulator" class="py-16 bg-slate-100/60 dark:bg-slate-900/40 border-y border-slate-200 dark:border-slate-800">
+  <section id="simulator" class="py-14 sm:py-16 bg-slate-100/60 dark:bg-slate-900/40 border-y border-slate-200 dark:border-slate-800">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center max-w-3xl mx-auto mb-10">
         <span class="pill-tag mb-2">Interactive Capital Simulator</span>
-        <h2 class="text-2xl sm:text-4xl font-bold font-syne text-slate-900 dark:text-white">
+        <h2 class="text-2xl sm:text-4xl font-bold font-cinzel text-slate-900 dark:text-white">
           Multi-Year Capital Progression &amp; ROE Leverage
         </h2>
-        <p class="text-sm sm:text-base text-slate-600 dark:text-slate-300 mt-2">
+        <p class="text-xs sm:text-base text-slate-600 dark:text-slate-300 mt-2 font-jakarta">
           Toggle the investment timeline (2026 &ndash; 2030) to inspect actual capital deployed, estimated asset valuations, cumulative rental earnings, and overall Return on Invested Equity.
         </p>
       </div>
 
       <!-- Year Selector Controls -->
-      <div class="flex items-center justify-center gap-2 sm:gap-4 mb-8">
-        <button data-year="2026" class="year-btn px-4 sm:px-6 py-2.5 rounded-xl font-syne font-bold text-xs sm:text-sm transition-all border border-slate-300 dark:border-slate-700">2026 Launch</button>
-        <button data-year="2027" class="year-btn px-4 sm:px-6 py-2.5 rounded-xl font-syne font-bold text-xs sm:text-sm transition-all border border-slate-300 dark:border-slate-700">2027 Construction</button>
-        <button data-year="2028" class="year-btn px-4 sm:px-6 py-2.5 rounded-xl font-syne font-bold text-xs sm:text-sm transition-all border border-slate-300 dark:border-slate-700 bg-[#7A5A1E] text-white shadow-md">2028 Handover Window</button>
-        <button data-year="2029" class="year-btn px-4 sm:px-6 py-2.5 rounded-xl font-syne font-bold text-xs sm:text-sm transition-all border border-slate-300 dark:border-slate-700">2029 DMC Handover</button>
-        <button data-year="2030" class="year-btn px-4 sm:px-6 py-2.5 rounded-xl font-syne font-bold text-xs sm:text-sm transition-all border border-slate-300 dark:border-slate-700">2030 Portfolio Maturity</button>
+      <div class="flex items-center justify-center gap-1.5 sm:gap-4 mb-8 overflow-x-auto pb-2">
+        <button data-year="2026" class="year-btn px-3 sm:px-6 py-2 sm:py-2.5 rounded-xl font-outfit font-bold text-xs sm:text-sm transition-all border border-slate-300 dark:border-slate-700 whitespace-nowrap">2026 Launch</button>
+        <button data-year="2027" class="year-btn px-3 sm:px-6 py-2 sm:py-2.5 rounded-xl font-outfit font-bold text-xs sm:text-sm transition-all border border-slate-300 dark:border-slate-700 whitespace-nowrap">2027 Works</button>
+        <button data-year="2028" class="year-btn px-3 sm:px-6 py-2 sm:py-2.5 rounded-xl font-outfit font-bold text-xs sm:text-sm transition-all border border-slate-300 dark:border-slate-700 bg-[#7A5A1E] text-white shadow-md whitespace-nowrap">2028 Handover</button>
+        <button data-year="2029" class="year-btn px-3 sm:px-6 py-2 sm:py-2.5 rounded-xl font-outfit font-bold text-xs sm:text-sm transition-all border border-slate-300 dark:border-slate-700 whitespace-nowrap">2029 DMC</button>
+        <button data-year="2030" class="year-btn px-3 sm:px-6 py-2 sm:py-2.5 rounded-xl font-outfit font-bold text-xs sm:text-sm transition-all border border-slate-300 dark:border-slate-700 whitespace-nowrap">2030 Maturity</button>
       </div>
 
       <!-- Active Milestone Card -->
-      <div class="glass-panel rounded-2xl p-6 mb-10 max-w-4xl mx-auto border-l-4 border-l-[#7A5A1E]">
+      <div class="glass-panel rounded-2xl p-5 sm:p-6 mb-10 max-w-4xl mx-auto border-l-4 border-l-[#7A5A1E]">
         <div class="flex items-center gap-3 mb-2">
           <i data-lucide="compass" class="w-5 h-5 text-[#7A5A1E] dark:text-[#D9B76F]"></i>
-          <span id="milestoneTag" class="font-syne font-bold text-base text-slate-900 dark:text-white"></span>
+          <span id="milestoneTag" class="font-outfit font-bold text-sm sm:text-base text-slate-900 dark:text-white"></span>
         </div>
-        <p id="milestoneDesc" class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed"></p>
+        <p id="milestoneDesc" class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed font-jakarta"></p>
       </div>
 
       <!-- 4 Property Simulation Cards -->
@@ -400,22 +503,22 @@
         <div class="glass-panel rounded-3xl p-6 flex flex-col justify-between border-t-4 border-t-[#7A5A1E]">
           <div>
             <div class="text-xs uppercase font-bold text-[#7A5A1E] dark:text-[#D9B76F] mb-1">Allegro Park (2BR)</div>
-            <h4 class="text-lg font-bold font-syne text-slate-900 dark:text-white">Dubai Islands</h4>
-            <div class="space-y-3 mt-4 text-xs">
+            <h4 class="text-lg font-bold font-cinzel text-slate-900 dark:text-white">Dubai Islands</h4>
+            <div class="space-y-3 mt-4 text-xs font-outfit">
               <div class="flex justify-between pb-2 border-b border-slate-200 dark:border-slate-800">
-                <span class="text-slate-500">Asset Valuation:</span>
+                <span class="text-slate-500 font-jakarta">Asset Valuation:</span>
                 <span id="sim-val-allegro" class="font-bold text-slate-900 dark:text-white"></span>
               </div>
               <div class="flex justify-between pb-2 border-b border-slate-200 dark:border-slate-800">
-                <span class="text-slate-500">Equity Deployed:</span>
+                <span class="text-slate-500 font-jakarta">Equity Deployed:</span>
                 <span id="sim-equity-allegro" class="font-bold text-slate-900 dark:text-white"></span>
               </div>
               <div class="flex justify-between pb-2 border-b border-slate-200 dark:border-slate-800">
-                <span class="text-slate-500">Unrealized Capital Gain:</span>
+                <span class="text-slate-500 font-jakarta">Unrealized Capital Gain:</span>
                 <span id="sim-gain-allegro"></span>
               </div>
               <div class="flex justify-between pb-2 border-b border-slate-200 dark:border-slate-800">
-                <span class="text-slate-500">Cumulative Rent:</span>
+                <span class="text-slate-500 font-jakarta">Cumulative Rent:</span>
                 <span id="sim-rent-allegro" class="font-bold text-emerald-600 dark:text-emerald-400"></span>
               </div>
             </div>
@@ -430,22 +533,22 @@
         <div class="glass-panel rounded-3xl p-6 flex flex-col justify-between border-t-4 border-t-emerald-600">
           <div>
             <div class="text-xs uppercase font-bold text-emerald-600 dark:text-emerald-400 mb-1">KORE by Imtiaz (2BR)</div>
-            <h4 class="text-lg font-bold font-syne text-slate-900 dark:text-white">Dubailand</h4>
-            <div class="space-y-3 mt-4 text-xs">
+            <h4 class="text-lg font-bold font-cinzel text-slate-900 dark:text-white">Dubailand</h4>
+            <div class="space-y-3 mt-4 text-xs font-outfit">
               <div class="flex justify-between pb-2 border-b border-slate-200 dark:border-slate-800">
-                <span class="text-slate-500">Asset Valuation:</span>
+                <span class="text-slate-500 font-jakarta">Asset Valuation:</span>
                 <span id="sim-val-kore" class="font-bold text-slate-900 dark:text-white"></span>
               </div>
               <div class="flex justify-between pb-2 border-b border-slate-200 dark:border-slate-800">
-                <span class="text-slate-500">Equity Deployed:</span>
+                <span class="text-slate-500 font-jakarta">Equity Deployed:</span>
                 <span id="sim-equity-kore" class="font-bold text-slate-900 dark:text-white"></span>
               </div>
               <div class="flex justify-between pb-2 border-b border-slate-200 dark:border-slate-800">
-                <span class="text-slate-500">Unrealized Capital Gain:</span>
+                <span class="text-slate-500 font-jakarta">Unrealized Capital Gain:</span>
                 <span id="sim-gain-kore"></span>
               </div>
               <div class="flex justify-between pb-2 border-b border-slate-200 dark:border-slate-800">
-                <span class="text-slate-500">Cumulative Rent:</span>
+                <span class="text-slate-500 font-jakarta">Cumulative Rent:</span>
                 <span id="sim-rent-kore" class="font-bold text-emerald-600 dark:text-emerald-400"></span>
               </div>
             </div>
@@ -460,22 +563,22 @@
         <div class="glass-panel rounded-3xl p-6 flex flex-col justify-between border-t-4 border-t-sky-600">
           <div>
             <div class="text-xs uppercase font-bold text-sky-600 dark:text-sky-400 mb-1">Danube SRK (2BR)</div>
-            <h4 class="text-lg font-bold font-syne text-slate-900 dark:text-white">Maritime City</h4>
-            <div class="space-y-3 mt-4 text-xs">
+            <h4 class="text-lg font-bold font-cinzel text-slate-900 dark:text-white">Maritime City</h4>
+            <div class="space-y-3 mt-4 text-xs font-outfit">
               <div class="flex justify-between pb-2 border-b border-slate-200 dark:border-slate-800">
-                <span class="text-slate-500">Asset Valuation:</span>
+                <span class="text-slate-500 font-jakarta">Asset Valuation:</span>
                 <span id="sim-val-danube" class="font-bold text-slate-900 dark:text-white"></span>
               </div>
               <div class="flex justify-between pb-2 border-b border-slate-200 dark:border-slate-800">
-                <span class="text-slate-500">Equity Deployed:</span>
+                <span class="text-slate-500 font-jakarta">Equity Deployed:</span>
                 <span id="sim-equity-danube" class="font-bold text-slate-900 dark:text-white"></span>
               </div>
               <div class="flex justify-between pb-2 border-b border-slate-200 dark:border-slate-800">
-                <span class="text-slate-500">Unrealized Capital Gain:</span>
+                <span class="text-slate-500 font-jakarta">Unrealized Capital Gain:</span>
                 <span id="sim-gain-danube"></span>
               </div>
               <div class="flex justify-between pb-2 border-b border-slate-200 dark:border-slate-800">
-                <span class="text-slate-500">Cumulative Rent:</span>
+                <span class="text-slate-500 font-jakarta">Cumulative Rent:</span>
                 <span id="sim-rent-danube" class="font-bold text-emerald-600 dark:text-emerald-400"></span>
               </div>
             </div>
@@ -490,22 +593,22 @@
         <div class="glass-panel rounded-3xl p-6 flex flex-col justify-between border-t-4 border-t-purple-600">
           <div>
             <div class="text-xs uppercase font-bold text-purple-600 dark:text-purple-400 mb-1">Mercedes-Benz Places</div>
-            <h4 class="text-lg font-bold font-syne text-slate-900 dark:text-white">Binghatti City</h4>
-            <div class="space-y-3 mt-4 text-xs">
+            <h4 class="text-lg font-bold font-cinzel text-slate-900 dark:text-white">Binghatti City</h4>
+            <div class="space-y-3 mt-4 text-xs font-outfit">
               <div class="flex justify-between pb-2 border-b border-slate-200 dark:border-slate-800">
-                <span class="text-slate-500">Asset Valuation:</span>
+                <span class="text-slate-500 font-jakarta">Asset Valuation:</span>
                 <span id="sim-val-binghatti" class="font-bold text-slate-900 dark:text-white"></span>
               </div>
               <div class="flex justify-between pb-2 border-b border-slate-200 dark:border-slate-800">
-                <span class="text-slate-500">Equity Deployed:</span>
+                <span class="text-slate-500 font-jakarta">Equity Deployed:</span>
                 <span id="sim-equity-binghatti" class="font-bold text-slate-900 dark:text-white"></span>
               </div>
               <div class="flex justify-between pb-2 border-b border-slate-200 dark:border-slate-800">
-                <span class="text-slate-500">Unrealized Capital Gain:</span>
+                <span class="text-slate-500 font-jakarta">Unrealized Capital Gain:</span>
                 <span id="sim-gain-binghatti"></span>
               </div>
               <div class="flex justify-between pb-2 border-b border-slate-200 dark:border-slate-800">
-                <span class="text-slate-500">Cumulative Rent:</span>
+                <span class="text-slate-500 font-jakarta">Cumulative Rent:</span>
                 <span id="sim-rent-binghatti" class="font-bold text-emerald-600 dark:text-emerald-400"></span>
               </div>
             </div>
@@ -520,22 +623,22 @@
   </section>
 
   <!-- Section 4: Development Spotlights (In-Depth Analysis) -->
-  <section id="spotlights" class="py-16">
+  <section id="spotlights" class="py-14 sm:py-16">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-8">
         <div>
           <span class="pill-tag mb-2">Development Spotlights</span>
-          <h2 class="text-2xl sm:text-4xl font-bold font-syne text-slate-900 dark:text-white">
+          <h2 class="text-2xl sm:text-4xl font-bold font-cinzel text-slate-900 dark:text-white">
             Architecture, Amenities &amp; Lifestyle Features
           </h2>
         </div>
 
         <!-- Spotlight Tabs -->
         <div class="flex items-center gap-2 mt-4 sm:mt-0 border-b border-slate-200 dark:border-slate-800 overflow-x-auto pb-1">
-          <button data-tab="allegro" class="spotlight-tab px-4 py-2 font-syne font-bold text-xs uppercase tracking-wider border-b-2 border-[#7A5A1E] text-[#7A5A1E] dark:text-[#D9B76F] whitespace-nowrap">Allegro Park</button>
-          <button data-tab="kore" class="spotlight-tab px-4 py-2 font-syne font-bold text-xs uppercase tracking-wider border-b-2 border-transparent text-slate-500 hover:text-slate-800 dark:hover:text-slate-200 whitespace-nowrap">KORE by Imtiaz</button>
-          <button data-tab="danube" class="spotlight-tab px-4 py-2 font-syne font-bold text-xs uppercase tracking-wider border-b-2 border-transparent text-slate-500 hover:text-slate-800 dark:hover:text-slate-200 whitespace-nowrap">Danube SRK DMC</button>
-          <button data-tab="binghatti" class="spotlight-tab px-4 py-2 font-syne font-bold text-xs uppercase tracking-wider border-b-2 border-transparent text-slate-500 hover:text-slate-800 dark:hover:text-slate-200 whitespace-nowrap">Mercedes-Benz Places</button>
+          <button data-tab="allegro" class="spotlight-tab px-4 py-2 font-outfit font-bold text-xs uppercase tracking-wider border-b-2 border-[#7A5A1E] text-[#7A5A1E] dark:text-[#D9B76F] whitespace-nowrap">Allegro Park</button>
+          <button data-tab="kore" class="spotlight-tab px-4 py-2 font-outfit font-bold text-xs uppercase tracking-wider border-b-2 border-transparent text-slate-500 hover:text-slate-800 dark:hover:text-slate-200 whitespace-nowrap">KORE by Imtiaz</button>
+          <button data-tab="danube" class="spotlight-tab px-4 py-2 font-outfit font-bold text-xs uppercase tracking-wider border-b-2 border-transparent text-slate-500 hover:text-slate-800 dark:hover:text-slate-200 whitespace-nowrap">Danube SRK DMC</button>
+          <button data-tab="binghatti" class="spotlight-tab px-4 py-2 font-outfit font-bold text-xs uppercase tracking-wider border-b-2 border-transparent text-slate-500 hover:text-slate-800 dark:hover:text-slate-200 whitespace-nowrap">Mercedes-Benz Places</button>
         </div>
       </div>
 
@@ -547,7 +650,7 @@
               <img src="assets/allegro_living_2br.webp" alt="Allegro Park 2BR Living" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
               <div class="absolute bottom-4 left-4 right-4 p-4 rounded-2xl bg-black/60 backdrop-blur-md text-white">
                 <span class="text-[11px] font-bold text-amber-300 uppercase tracking-wider">Waterfront Luxury Specification</span>
-                <h4 class="text-base font-bold font-syne">2-Bedroom Residence with Private Balcony Plunge Pool</h4>
+                <h4 class="text-base font-bold font-cinzel">2-Bedroom Residence with Private Balcony Plunge Pool</h4>
               </div>
             </div>
             <div class="grid grid-cols-3 gap-4">
@@ -565,8 +668,8 @@
 
           <div class="lg:col-span-5 space-y-6">
             <div class="glass-panel p-6 rounded-3xl space-y-4">
-              <h3 class="text-2xl font-bold font-syne text-slate-900 dark:text-white">Allegro Park &bull; Dubai Islands</h3>
-              <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+              <h3 class="text-2xl font-bold font-cinzel text-slate-900 dark:text-white">Allegro Park &bull; Dubai Islands</h3>
+              <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed font-jakarta">
                 Positioned on Island A of Nakheel's Dubai Islands master destination, Allegro Park captures the spirit of coastal tranquility. Every standard 2BR unit includes an engineered glass-front balcony plunge pool, commanding premium short-term and long-term rental yields.
               </p>
               <div class="space-y-3 pt-2 text-xs">
@@ -600,7 +703,7 @@
               <img src="assets/kore_2br_living.webp" alt="KORE 2BR Living" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
               <div class="absolute bottom-4 left-4 right-4 p-4 rounded-2xl bg-black/60 backdrop-blur-md text-white">
                 <span class="text-[11px] font-bold text-emerald-400 uppercase tracking-wider">Wellness Living Architecture</span>
-                <h4 class="text-base font-bold font-syne">2-Bedroom Fully Furnished with Italian Custom Joinery</h4>
+                <h4 class="text-base font-bold font-cinzel">2-Bedroom Fully Furnished with Italian Custom Joinery</h4>
               </div>
             </div>
             <div class="grid grid-cols-3 gap-4">
@@ -618,8 +721,8 @@
 
           <div class="lg:col-span-5 space-y-6">
             <div class="glass-panel p-6 rounded-3xl space-y-4">
-              <h3 class="text-2xl font-bold font-syne text-slate-900 dark:text-white">KORE by Imtiaz &bull; Dubailand</h3>
-              <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+              <h3 class="text-2xl font-bold font-cinzel text-slate-900 dark:text-white">KORE by Imtiaz &bull; Dubailand</h3>
+              <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed font-jakarta">
                 Dubailand's first dedicated Human Performance &amp; Longevity residential asset. Designed to capture high-earning corporate executives seeking a holistic living sanctuary with on-site Technogym AI fitness, padel courts, cold plunges, and circadian sleep systems.
               </p>
               <div class="space-y-3 pt-2 text-xs">
@@ -653,7 +756,7 @@
               <img src="assets/srk_tower_render.webp" alt="Danube SRK Tower" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
               <div class="absolute bottom-4 left-4 right-4 p-4 rounded-2xl bg-black/60 backdrop-blur-md text-white">
                 <span class="text-[11px] font-bold text-sky-400 uppercase tracking-wider">Iconic Coastal Landmark</span>
-                <h4 class="text-base font-bold font-syne">Shahrukh Residences by Danube &bull; Dubai Maritime City</h4>
+                <h4 class="text-base font-bold font-cinzel">Shahrukh Residences by Danube &bull; Dubai Maritime City</h4>
               </div>
             </div>
             <div class="grid grid-cols-3 gap-4">
@@ -671,8 +774,8 @@
 
           <div class="lg:col-span-5 space-y-6">
             <div class="glass-panel p-6 rounded-3xl space-y-4">
-              <h3 class="text-2xl font-bold font-syne text-slate-900 dark:text-white">Danube SRK &bull; Maritime City</h3>
-              <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+              <h3 class="text-2xl font-bold font-cinzel text-slate-900 dark:text-white">Danube SRK &bull; Maritime City</h3>
+              <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed font-jakarta">
                 A monumental branded development in Dubai Maritime City, commanding unobstructed 360&deg; sea views and 8-minute connectivity to Downtown Dubai. Featuring private plunge pools and Danube's highly sought-after 30/70 payment plan.
               </p>
               <div class="space-y-3 pt-2 text-xs">
@@ -706,7 +809,7 @@
               <img src="assets/mbp_monumental_scale.webp" alt="Mercedes-Benz Places Monumental Scale" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
               <div class="absolute bottom-4 left-4 right-4 p-4 rounded-2xl bg-black/60 backdrop-blur-md text-white">
                 <span class="text-[11px] font-bold text-purple-400 uppercase tracking-wider">Automotive Luxury Branded City</span>
-                <h4 class="text-base font-bold font-syne">Mercedes-Benz Places | Binghatti City (12 Landmark Towers)</h4>
+                <h4 class="text-base font-bold font-cinzel">Mercedes-Benz Places | Binghatti City (12 Landmark Towers)</h4>
               </div>
             </div>
             <div class="grid grid-cols-3 gap-4">
@@ -724,8 +827,8 @@
 
           <div class="lg:col-span-5 space-y-6">
             <div class="glass-panel p-6 rounded-3xl space-y-4">
-              <h3 class="text-2xl font-bold font-syne text-slate-900 dark:text-white">Mercedes-Benz Places &bull; Binghatti City</h3>
-              <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+              <h3 class="text-2xl font-bold font-cinzel text-slate-900 dark:text-white">Mercedes-Benz Places &bull; Binghatti City</h3>
+              <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed font-jakarta">
                 A city-scale master development merging the design DNA of Mercedes-Benz with Binghatti's avant-garde architecture. Incorporating 12 iconic towers (Project Maybach, AMG Vision, Vision One-Eleven, Vision Iconic) overlooking Downtown Dubai and Ras Al Khor Sanctuary.
               </p>
               <div class="space-y-3 pt-2 text-xs">
@@ -754,14 +857,14 @@
   </section>
 
   <!-- Section 5: Official Architectural Blueprints & Unit Floorplans -->
-  <section id="blueprints" class="py-16 bg-slate-100/60 dark:bg-slate-900/40 border-y border-slate-200 dark:border-slate-800">
+  <section id="blueprints" class="py-14 sm:py-16 bg-slate-100/60 dark:bg-slate-900/40 border-y border-slate-200 dark:border-slate-800">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center max-w-3xl mx-auto mb-12">
+      <div class="text-center max-w-3xl mx-auto mb-10 sm:mb-12">
         <span class="pill-tag mb-2">Architectural Unit Blueprints</span>
-        <h2 class="text-2xl sm:text-4xl font-bold font-syne text-slate-900 dark:text-white">
+        <h2 class="text-2xl sm:text-4xl font-bold font-cinzel text-slate-900 dark:text-white">
           Official 2BR Unit Layouts &amp; Floor Plans
         </h2>
-        <p class="text-sm sm:text-base text-slate-600 dark:text-slate-300 mt-2">
+        <p class="text-xs sm:text-base text-slate-600 dark:text-slate-300 mt-2 font-jakarta">
           Click any blueprint below to inspect the high-resolution architectural layout, suite dimensions, balcony plunge pools, and spatial distribution.
         </p>
       </div>
@@ -781,8 +884,8 @@
           </div>
           <div class="mt-4">
             <span class="text-[10px] font-bold uppercase tracking-wider text-[#7A5A1E] dark:text-[#D9B76F]">Allegro Park &bull; Dubai Islands</span>
-            <h4 class="text-sm font-bold font-syne text-slate-900 dark:text-white mt-0.5">2-Bedroom + Private Pool</h4>
-            <p class="text-xs text-slate-500 mt-1">Area: ~1,250 sq.ft &bull; 50/50 Post-Handover</p>
+            <h4 class="text-sm font-bold font-cinzel text-slate-900 dark:text-white mt-0.5">2-Bedroom + Private Pool</h4>
+            <p class="text-xs text-slate-500 mt-1 font-outfit">Area: ~1,250 sq.ft &bull; 50/50 Post-Handover</p>
           </div>
         </div>
 
@@ -799,8 +902,8 @@
           </div>
           <div class="mt-4">
             <span class="text-[10px] font-bold uppercase tracking-wider text-emerald-600 dark:text-emerald-400">KORE by Imtiaz &bull; Dubailand</span>
-            <h4 class="text-sm font-bold font-syne text-slate-900 dark:text-white mt-0.5">2-Bedroom Fully Furnished</h4>
-            <p class="text-xs text-slate-500 mt-1">Area: ~1,150 sq.ft &bull; 8.5% - 9.5% Net Yield</p>
+            <h4 class="text-sm font-bold font-cinzel text-slate-900 dark:text-white mt-0.5">2-Bedroom Fully Furnished</h4>
+            <p class="text-xs text-slate-500 mt-1 font-outfit">Area: ~1,150 sq.ft &bull; 8.5% - 9.5% Net Yield</p>
           </div>
         </div>
 
@@ -817,8 +920,8 @@
           </div>
           <div class="mt-4">
             <span class="text-[10px] font-bold uppercase tracking-wider text-sky-600 dark:text-sky-400">Danube SRK &bull; Maritime City</span>
-            <h4 class="text-sm font-bold font-syne text-slate-900 dark:text-white mt-0.5">Flex Plus 2 BHK Sea View</h4>
-            <p class="text-xs text-slate-500 mt-1">Area: ~1,380 sq.ft &bull; 30/70 Plan (Dec 2029)</p>
+            <h4 class="text-sm font-bold font-cinzel text-slate-900 dark:text-white mt-0.5">Flex Plus 2 BHK Sea View</h4>
+            <p class="text-xs text-slate-500 mt-1 font-outfit">Area: ~1,380 sq.ft &bull; 30/70 Plan (Dec 2029)</p>
           </div>
         </div>
 
@@ -835,8 +938,8 @@
           </div>
           <div class="mt-4">
             <span class="text-[10px] font-bold uppercase tracking-wider text-purple-600 dark:text-purple-400">Mercedes-Benz Places &bull; Binghatti</span>
-            <h4 class="text-sm font-bold font-syne text-slate-900 dark:text-white mt-0.5">Vision Iconic Tower 6 (2BR)</h4>
-            <p class="text-xs text-slate-500 mt-1">Area: ~1,450 sq.ft &bull; Maybach Finishes</p>
+            <h4 class="text-sm font-bold font-cinzel text-slate-900 dark:text-white mt-0.5">Vision Iconic Tower 6 (2BR)</h4>
+            <p class="text-xs text-slate-500 mt-1 font-outfit">Area: ~1,450 sq.ft &bull; Maybach Finishes</p>
           </div>
         </div>
       </div>
@@ -844,14 +947,14 @@
   </section>
 
   <!-- Section 6: Advisory Recommendation & Strategic Action Plan -->
-  <section id="action-plan" class="py-16">
+  <section id="action-plan" class="py-14 sm:py-16">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center max-w-3xl mx-auto mb-12">
+      <div class="text-center max-w-3xl mx-auto mb-10 sm:mb-12">
         <span class="pill-tag mb-2">Advisory Recommendation</span>
-        <h2 class="text-2xl sm:text-4xl font-bold font-syne text-slate-900 dark:text-white">
+        <h2 class="text-2xl sm:text-4xl font-bold font-cinzel text-slate-900 dark:text-white">
           Strategic Action Plan for Arshad
         </h2>
-        <p class="text-sm sm:text-base text-slate-600 dark:text-slate-300 mt-2">
+        <p class="text-xs sm:text-base text-slate-600 dark:text-slate-300 mt-2 font-jakarta">
           Aligning capital allocation to your principal financial objective.
         </p>
       </div>
@@ -861,8 +964,8 @@
         <div class="glass-panel p-6 rounded-3xl border-t-4 border-t-[#7A5A1E] flex flex-col justify-between">
           <div>
             <span class="pill-tag text-[10px] mb-3">Priority #1: Maximum ROE</span>
-            <h3 class="text-xl font-bold font-syne text-slate-900 dark:text-white mb-3">Select Allegro Park</h3>
-            <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
+            <h3 class="text-xl font-bold font-cinzel text-slate-900 dark:text-white mb-3">Select Allegro Park</h3>
+            <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed mb-4 font-jakarta">
               Deploying only 50% capital (AED 1.2M) during construction while capturing 100% Nakheel infrastructure appreciation and 3 years of rental income delivers an unmatched <strong>&gt; 160% ROE</strong> with private pool desirability.
             </p>
           </div>
@@ -876,8 +979,8 @@
         <div class="glass-panel p-6 rounded-3xl border-t-4 border-t-emerald-600 flex flex-col justify-between">
           <div>
             <span class="pill-tag text-[10px] mb-3">Priority #2: Steady High Cash Flow</span>
-            <h3 class="text-xl font-bold font-syne text-slate-900 dark:text-white mb-3">Select KORE by Imtiaz</h3>
-            <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
+            <h3 class="text-xl font-bold font-cinzel text-slate-900 dark:text-white mb-3">Select KORE by Imtiaz</h3>
+            <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed mb-4 font-jakarta">
               Provides the lowest barrier to entry (from AED 1.8M) with resilient <strong>8.5% &ndash; 9.5% net yields</strong> driven by niche wellness demand and corporate biohacking amenities. Handover in Q4 2026.
             </p>
           </div>
@@ -891,8 +994,8 @@
         <div class="glass-panel p-6 rounded-3xl border-t-4 border-t-sky-600 flex flex-col justify-between">
           <div>
             <span class="pill-tag text-[10px] mb-3">Priority #3: 4-Yr Payment Deferral</span>
-            <h3 class="text-xl font-bold font-syne text-slate-900 dark:text-white mb-3">Select Danube SRK DMC</h3>
-            <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
+            <h3 class="text-xl font-bold font-cinzel text-slate-900 dark:text-white mb-3">Select Danube SRK DMC</h3>
+            <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed mb-4 font-jakarta">
               The <strong>30/70 payment plan</strong> lets you control a premier waterfront 2BR asset in Dubai Maritime City with only 30% out-of-pocket cash (AED 1.275M) until December 2029 handover.
             </p>
           </div>
@@ -912,8 +1015,8 @@
         <i data-lucide="x" class="w-5 h-5"></i>
       </button>
       <div class="mb-4 pr-10">
-        <h3 id="lightboxTitle" class="text-xl font-bold font-syne text-slate-900 dark:text-white"></h3>
-        <p id="lightboxDesc" class="text-xs text-slate-500 mt-1"></p>
+        <h3 id="lightboxTitle" class="text-xl font-bold font-cinzel text-slate-900 dark:text-white"></h3>
+        <p id="lightboxDesc" class="text-xs text-slate-500 mt-1 font-jakarta"></p>
       </div>
       <div class="rounded-2xl overflow-hidden bg-slate-950 flex items-center justify-center max-h-[75vh]">
         <img id="lightboxImg" src="" alt="Blueprint" class="max-w-full max-h-[75vh] object-contain">
@@ -921,9 +1024,9 @@
     </div>
   </div>
 
-  <!-- Floating WhatsApp Action Button: STRICTLY ICON ONLY -->
+  <!-- Floating WhatsApp Action Button: STRICTLY ICON ONLY (+971 563004106) -->
   <aside class="fixed bottom-6 right-6 z-50">
-    <a href="https://wa.me/971508379080" target="_blank" rel="noopener noreferrer" aria-label="Direct WhatsApp Concierge" class="w-14 h-14 rounded-full bg-emerald-600 hover:bg-emerald-500 text-white shadow-2xl flex items-center justify-center transition-transform hover:scale-110 active:scale-95 group">
+    <a href="https://wa.me/971563004106" target="_blank" rel="noopener noreferrer" aria-label="Direct WhatsApp Concierge" class="w-14 h-14 rounded-full bg-emerald-600 hover:bg-emerald-500 text-white shadow-2xl flex items-center justify-center transition-transform hover:scale-110 active:scale-95 group">
       <span class="absolute -top-1 -right-1 w-4 h-4 bg-amber-400 rounded-full animate-ping"></span>
       <span class="absolute -top-1 -right-1 w-4 h-4 bg-amber-400 rounded-full"></span>
       <i data-lucide="message-circle" class="w-7 h-7"></i>
@@ -931,7 +1034,7 @@
   </aside>
 
   <!-- Footer -->
-  <footer class="py-12 border-t border-slate-200 dark:border-slate-800 bg-white/40 dark:bg-black/20 text-center text-xs text-slate-500 space-y-2">
+  <footer class="py-12 border-t border-slate-200 dark:border-slate-800 bg-white/40 dark:bg-black/20 text-center text-xs text-slate-500 space-y-2 font-jakarta">
     <p>&copy; 2026 Private Client Wealth Advisory. Specially prepared for Mr. Arshad.</p>
     <p class="font-medium text-slate-400">Developed by Tecnoemprende</p>
   </footer>

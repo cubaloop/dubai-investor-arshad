@@ -9,30 +9,61 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   // Theme Management (Light-First default)
-  const themeToggleBtn = document.getElementById('themeToggleBtn');
-  const themeIcon = document.getElementById('themeIcon');
+  const themeToggleBtns = [document.getElementById('themeToggleBtn'), document.getElementById('drawerThemeToggleBtn')];
+  const themeIcons = [document.getElementById('themeIcon'), document.getElementById('drawerThemeIcon')];
   const rootHtml = document.documentElement;
 
   // Initialize theme from storage or default to Light
   const savedTheme = localStorage.getItem('arshad_theme') || 'light';
   if (savedTheme === 'dark') {
     rootHtml.classList.add('theme-dark');
-    if (themeIcon) themeIcon.setAttribute('data-lucide', 'sun');
+    themeIcons.forEach(icon => { if (icon) icon.setAttribute('data-lucide', 'sun'); });
   } else {
     rootHtml.classList.remove('theme-dark');
-    if (themeIcon) themeIcon.setAttribute('data-lucide', 'moon');
+    themeIcons.forEach(icon => { if (icon) icon.setAttribute('data-lucide', 'moon'); });
   }
 
-  if (themeToggleBtn) {
-    themeToggleBtn.addEventListener('click', () => {
-      const isDark = rootHtml.classList.toggle('theme-dark');
-      localStorage.setItem('arshad_theme', isDark ? 'dark' : 'light');
-      if (themeIcon) {
-        themeIcon.setAttribute('data-lucide', isDark ? 'sun' : 'moon');
+  themeToggleBtns.forEach(btn => {
+    if (btn) {
+      btn.addEventListener('click', () => {
+        const isDark = rootHtml.classList.toggle('theme-dark');
+        localStorage.setItem('arshad_theme', isDark ? 'dark' : 'light');
+        themeIcons.forEach(icon => {
+          if (icon) icon.setAttribute('data-lucide', isDark ? 'sun' : 'moon');
+        });
         lucide.createIcons();
-      }
-    });
+      });
+    }
+  });
+
+  // Left Vertical Drawer Management
+  const openDrawerBtn = document.getElementById('openDrawerBtn');
+  const closeDrawerBtn = document.getElementById('closeDrawerBtn');
+  const drawerBackdrop = document.getElementById('drawerBackdrop');
+  const drawerPanel = document.getElementById('drawerPanel');
+
+  function openDrawer() {
+    if (drawerBackdrop && drawerPanel) {
+      drawerBackdrop.classList.add('active');
+      drawerPanel.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
   }
+
+  function closeDrawer() {
+    if (drawerBackdrop && drawerPanel) {
+      drawerBackdrop.classList.remove('active');
+      drawerPanel.classList.remove('active');
+      document.body.style.overflow = 'auto';
+    }
+  }
+
+  if (openDrawerBtn) openDrawerBtn.addEventListener('click', openDrawer);
+  if (closeDrawerBtn) closeDrawerBtn.addEventListener('click', closeDrawer);
+  if (drawerBackdrop) drawerBackdrop.addEventListener('click', closeDrawer);
+  document.querySelectorAll('.drawer-link').forEach(link => {
+    link.addEventListener('click', closeDrawer);
+  });
 
   // Currency Formatter
   function formatMoney(amountAED, includeSymbol = true) {
@@ -87,24 +118,23 @@ document.addEventListener('DOMContentLoaded', () => {
       yearlyValuations: {
         2026: 2400000,
         2027: 2750000,
-        2028: 3100000, // Handover
+        2028: 3100000,
         2029: 3450000,
-        2030: 3800000  // Exit Value
+        2030: 3800000
       },
-      // Capital invested by Arshad (50% = 1.2M until handover, then rental covers remaining)
       equityDeployed: {
-        2026: 480000,  // 20%
-        2027: 840000,  // 35%
-        2028: 1200000, // 50% at handover
-        2029: 1200000, // 50%
-        2030: 1200000  // 50% out of pocket
+        2026: 480000,
+        2027: 840000,
+        2028: 1200000,
+        2029: 1200000,
+        2030: 1200000
       },
       cumulativeRent: {
         2026: 0,
         2027: 0,
-        2028: 180000, // Year 1 Rent
-        2029: 360000, // Year 2 Rent
-        2030: 540000  // Year 3 Rent
+        2028: 180000,
+        2029: 360000,
+        2030: 540000
       }
     },
     kore: {
@@ -120,21 +150,21 @@ document.addEventListener('DOMContentLoaded', () => {
       coreAdvantage: 'High recurring cash flow driven by niche wellness & corporate biohacking amenities.',
       yearlyValuations: {
         2026: 1800000,
-        2027: 2070000, // +15% step-up fully furnished
+        2027: 2070000,
         2028: 2250000,
         2029: 2420000,
         2030: 2600000
       },
       equityDeployed: {
-        2026: 540000,  // 30%
-        2027: 1080000, // 60%
-        2028: 1800000, // 100% full handover
+        2026: 540000,
+        2027: 1080000,
+        2028: 1800000,
         2029: 1800000,
         2030: 1800000
       },
       cumulativeRent: {
         2026: 0,
-        2027: 162000, // Early operations
+        2027: 162000,
         2028: 324000,
         2029: 486000,
         2030: 648000
@@ -155,22 +185,22 @@ document.addEventListener('DOMContentLoaded', () => {
         2026: 4250000,
         2027: 4675000,
         2028: 5185000,
-        2029: 5800000, // Dec 2029 Handover
+        2029: 5800000,
         2030: 6250000
       },
       equityDeployed: {
-        2026: 850000,  // 20% (10% + 10%)
-        2027: 1062500, // 25% (+5% month 10)
-        2028: 1275000, // 30% (+5% month 18)
-        2029: 1275000, // 30% prior to Dec keys
-        2030: 4250000  // 100% post-handover/mortgage
+        2026: 850000,
+        2027: 1062500,
+        2028: 1275000,
+        2029: 1275000,
+        2030: 4250000
       },
       cumulativeRent: {
         2026: 0,
         2027: 0,
         2028: 0,
         2029: 0,
-        2030: 380000 // Year 1 operations
+        2030: 380000
       }
     },
     binghatti: {
@@ -192,10 +222,10 @@ document.addEventListener('DOMContentLoaded', () => {
         2030: 5950000
       },
       equityDeployed: {
-        2026: 820000,  // 20%
-        2027: 1845000, // 45%
-        2028: 2870000, // 70%
-        2029: 4100000, // 100% Handover
+        2026: 820000,
+        2027: 1845000,
+        2028: 2870000,
+        2029: 4100000,
         2030: 4100000
       },
       cumulativeRent: {
@@ -250,41 +280,66 @@ document.addEventListener('DOMContentLoaded', () => {
       if (equityEl) equityEl.textContent = formatMoney(equity);
       if (gainEl) {
         gainEl.textContent = `+${formatMoney(capGain)}`;
-        gainEl.className = capGain >= 0 ? 'font-bold text-emerald-600 dark:text-emerald-400' : 'font-bold text-rose-500';
+        gainEl.className = capGain >= 0 ? 'font-bold font-outfit text-emerald-600 dark:text-emerald-400' : 'font-bold font-outfit text-rose-500';
       }
       if (rentEl) rentEl.textContent = formatMoney(rent);
       if (roeEl) {
         roeEl.textContent = `${roe}%`;
-        roeEl.className = roe > 100 ? 'text-xl font-extrabold text-amber-600 dark:text-amber-400' : 'text-xl font-bold text-slate-800 dark:text-slate-200';
+        roeEl.className = roe > 100 ? 'text-xl font-extrabold font-outfit text-[#7A5A1E] dark:text-[#D9B76F]' : 'text-xl font-bold font-outfit text-slate-800 dark:text-slate-200';
       }
     });
   }
 
-  // Currency Toggle Listeners
-  const btnAED = document.getElementById('currencyAED');
-  const btnUSD = document.getElementById('currencyUSD');
-  if (btnAED && btnUSD) {
-    btnAED.addEventListener('click', () => {
-      state.currency = 'AED';
-      btnAED.classList.add('bg-[#7A5A1E]', 'text-white');
-      btnAED.classList.remove('text-slate-600', 'dark:text-slate-300');
-      btnUSD.classList.remove('bg-[#7A5A1E]', 'text-white');
-      btnUSD.classList.add('text-slate-600', 'dark:text-slate-300');
-      updateAllPrices();
+  // Currency Toggle Listeners (in header and drawer)
+  function setupCurrencyButtons(btnAedId, btnUsdId) {
+    const btnAED = document.getElementById(btnAedId);
+    const btnUSD = document.getElementById(btnUsdId);
+    if (btnAED && btnUSD) {
+      btnAED.addEventListener('click', () => {
+        state.currency = 'AED';
+        syncCurrencyUI();
+        updateAllPrices();
+      });
+      btnUSD.addEventListener('click', () => {
+        state.currency = 'USD';
+        syncCurrencyUI();
+        updateAllPrices();
+      });
+    }
+  }
+
+  function syncCurrencyUI() {
+    ['currencyAED', 'drawerCurrencyAED'].forEach(id => {
+      const el = document.getElementById(id);
+      if (el) {
+        if (state.currency === 'AED') {
+          el.classList.add('bg-[#7A5A1E]', 'text-white');
+          el.classList.remove('text-slate-600', 'dark:text-slate-300');
+        } else {
+          el.classList.remove('bg-[#7A5A1E]', 'text-white');
+          el.classList.add('text-slate-600', 'dark:text-slate-300');
+        }
+      }
     });
 
-    btnUSD.addEventListener('click', () => {
-      state.currency = 'USD';
-      btnUSD.classList.add('bg-[#7A5A1E]', 'text-white');
-      btnUSD.classList.remove('text-slate-600', 'dark:text-slate-300');
-      btnAED.classList.remove('bg-[#7A5A1E]', 'text-white');
-      btnAED.classList.add('text-slate-600', 'dark:text-slate-300');
-      updateAllPrices();
+    ['currencyUSD', 'drawerCurrencyUSD'].forEach(id => {
+      const el = document.getElementById(id);
+      if (el) {
+        if (state.currency === 'USD') {
+          el.classList.add('bg-[#7A5A1E]', 'text-white');
+          el.classList.remove('text-slate-600', 'dark:text-slate-300');
+        } else {
+          el.classList.remove('bg-[#7A5A1E]', 'text-white');
+          el.classList.add('text-slate-600', 'dark:text-slate-300');
+        }
+      }
     });
   }
 
+  setupCurrencyButtons('currencyAED', 'currencyUSD');
+  setupCurrencyButtons('drawerCurrencyAED', 'drawerCurrencyUSD');
+
   function updateAllPrices() {
-    // Update general price badges across cards & tables
     document.querySelectorAll('[data-aed]').forEach(el => {
       const aedVal = parseFloat(el.getAttribute('data-aed'));
       el.textContent = formatMoney(aedVal);

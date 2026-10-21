@@ -1,11 +1,11 @@
 /* Dubai Ultra-Luxury Real Estate Advisory Theme - Tailored for Mr. Arshad */
-@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Syne:wght@500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800;900&family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&display=swap');
 
 :root {
   /* LIGHT-FIRST ELITE LUXURY (DEFAULT) */
   --bg-primary: #F6F1E7;
   --bg-surface: #FFFDF8;
-  --bg-card: rgba(255, 253, 248, 0.92);
+  --bg-card: rgba(255, 253, 248, 0.94);
   --bg-card-hover: rgba(255, 255, 255, 0.98);
   --text-primary: #14201B;
   --text-secondary: #4A5852;
@@ -15,7 +15,7 @@
   --accent-brass-dim: #D4B26F;
   --border-subtle: rgba(122, 90, 30, 0.16);
   --border-strong: rgba(122, 90, 30, 0.32);
-  --nav-bg: rgba(246, 241, 231, 0.92);
+  --nav-bg: rgba(246, 241, 231, 0.94);
   --shadow-luxury: 0 16px 40px -10px rgba(20, 32, 27, 0.08), 0 4px 12px -2px rgba(122, 90, 30, 0.06);
   --tag-bg: rgba(122, 90, 30, 0.08);
   --tag-text: #7A5A1E;
@@ -25,8 +25,8 @@
 html.theme-dark {
   --bg-primary: #09100D;
   --bg-surface: #121D18;
-  --bg-card: rgba(18, 29, 24, 0.88);
-  --bg-card-hover: rgba(26, 42, 35, 0.95);
+  --bg-card: rgba(18, 29, 24, 0.90);
+  --bg-card-hover: rgba(26, 42, 35, 0.96);
   --text-primary: #F2EDE0;
   --text-secondary: #B6C4BC;
   --text-muted: #7E9086;
@@ -35,7 +35,7 @@ html.theme-dark {
   --accent-brass-dim: #9C7B44;
   --border-subtle: rgba(217, 183, 111, 0.18);
   --border-strong: rgba(217, 183, 111, 0.38);
-  --nav-bg: rgba(9, 16, 13, 0.92);
+  --nav-bg: rgba(9, 16, 13, 0.94);
   --shadow-luxury: 0 20px 50px rgba(0, 0, 0, 0.6), 0 0 35px rgba(217, 183, 111, 0.1);
   --tag-bg: rgba(217, 183, 111, 0.12);
   --tag-text: #D9B76F;
@@ -52,6 +52,7 @@ body {
   color: var(--text-primary);
   overflow-x: hidden;
   margin: 0;
+  -webkit-font-smoothing: antialiased;
 }
 
 /* Atmospheric Layered Background */
@@ -64,7 +65,7 @@ body {
 
 html:not(.theme-dark) .atmospheric-bg {
   background: 
-    radial-gradient(circle at 12% 18%, rgba(122, 90, 30, 0.07) 0%, transparent 45%),
+    radial-gradient(circle at 12% 18%, rgba(122, 90, 30, 0.08) 0%, transparent 45%),
     radial-gradient(circle at 85% 22%, rgba(16, 185, 129, 0.05) 0%, transparent 50%),
     radial-gradient(circle at 50% 75%, rgba(14, 165, 233, 0.04) 0%, transparent 60%),
     linear-gradient(180deg, #F8F4EC 0%, #F3EEE3 40%, #EFE9DC 100%);
@@ -88,15 +89,23 @@ html.theme-dark .atmospheric-bg {
   background-size: 28px 28px;
 }
 
-/* Typography Classes */
+/* Luxury Professional Typography */
 .font-cinzel {
   font-family: 'Cinzel', serif;
   letter-spacing: 0.03em;
 }
 
-.font-syne {
-  font-family: 'Syne', sans-serif;
+.font-outfit {
+  font-family: 'Outfit', sans-serif;
   letter-spacing: -0.01em;
+}
+
+.font-playfair {
+  font-family: 'Playfair Display', serif;
+}
+
+.font-jakarta {
+  font-family: 'Plus Jakarta Sans', sans-serif;
 }
 
 /* Card & Glassmorphism Styling */
@@ -177,6 +186,43 @@ html.theme-dark .brass-gradient-text {
 /* Range Slider Styling */
 input[type="range"] {
   accent-color: var(--accent-brass);
+}
+
+/* Vertical Left Drawer Navigation */
+.drawer-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(9, 16, 13, 0.65);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 999;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+.drawer-backdrop.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.drawer-panel {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 320px;
+  max-width: 85vw;
+  background: var(--bg-surface);
+  border-right: 1px solid var(--border-strong);
+  box-shadow: 20px 0 50px rgba(0, 0, 0, 0.25);
+  z-index: 1000;
+  transform: translateX(-100%);
+  transition: transform 0.32s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  flex-direction: column;
+}
+.drawer-panel.active {
+  transform: translateX(0);
 }
 
 /* Modal lightbox backdrop */
